@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/black"
+    android:padding="12dp"
+    android:fillViewport="true"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/black"
+        android:padding="12dp">
+    <TextView
+        android:id="@+id/tv_title_extended"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:text="Title"
+        android:fontFamily="sans-serif-condensed-medium"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        />
+
+        <TextView
+            android:id="@+id/tv_title_japanese_extended"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Japanese Title"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:textSize="15sp"
+            android:textColor="@color/red"
+            android:textStyle="bold"
+            android:layout_below="@id/tv_title_extended"
+            android:layout_marginBottom="14sp"
+            />
+
+        <ImageView
+            android:id="@+id/image_extended"
+            android:layout_width="173dp"
+            android:layout_height="224dp"
+            android:layout_below="@id/tv_title_japanese_extended"
+            android:layout_alignParentLeft="true"
+            android:layout_marginBottom="10sp"
+            android:scaleType="fitXY" />
+
+
+        <TextView
+            android:id="@+id/year_extended"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Year: "
+            android:layout_marginLeft="13dp"
+            android:layout_marginRight="3sp"
+            android:textSize="12sp"
+            android:layout_toRightOf="@id/image_extended"
+            android:textColor="@color/white"
+            android:layout_below="@id/tv_title_japanese_extended"
+            android:textStyle="bold"
+            />
+
+        <TextView
+            android:id="@+id/tv_year_extended"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Year"
+            android:textSize="12sp"
+            android:layout_toRightOf="@id/year_extended"
+            android:layout_below="@id/tv_title_japanese_extended"
+            android:textColor="@color/red"
+            android:textStyle="bold"
+            />
+
+
+        <TextView
+            android:id="@+id/score_extended"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Score: "
+            android:layout_marginLeft="13dp"
+            android:layout_marginRight="3sp"
+            android:textSize="12sp"
+            android:layout_toRightOf="@id/image_extended"
+            android:textColor="@color/white"
+            android:layout_below="@id/tv_year_extended"
+            android:textStyle="bold"
+            />
+        <TextView
+            android:id="@+id/tv_score_extended"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Score"
+            android:textSize="12sp"
+            android:layout_toRightOf="@id/score_extended"
+            android:layout_below="@id/tv_year_extended"
+            android:textColor="@color/red"
+            android:textStyle="bold"
+            />
+        <TextView
+            android:id="@+id/source_extended"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Source: "
+            android:layout_marginLeft="13dp"
+            android:layout_marginRight="3sp"
+            android:textSize="12sp"
+            android:layout_toRightOf="@id/image_extended"
+            android:textColor="@color/white"
+            android:layout_below="@id/score_extended"
+            android:textStyle="bold"
+            />
+        <TextView
+            android:id="@+id/tv_source_extended"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Source"
+            android:textSize="12sp"
+            android:layout_toRightOf="@id/source_extended"
+            android:layout_below="@id/tv_score_extended"
+            android:textColor="@color/red"
+            android:textStyle="bold"
+            />
+        <TextView
+            android:id="@+id/type_extended"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Type: "
+            android:layout_marginLeft="13dp"
+            android:layout_marginRight="3sp"
+            android:textSize="12sp"
+            android:layout_toRightOf="@id/image_extended"
+            android:textColor="@color/white"
+            android:layout_below="@id/tv_source_extended"
+            android:textStyle="bold"
+            />
+        <TextView
+            android:id="@+id/tv_type_extended"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Type"
+            android:textSize="12sp"
+            android:layout_toRightOf="@id/type_extended"
+            android:layout_below="@id/tv_source_extended"
+            android:textColor="@color/red"
+            android:textStyle="bold"
+            />
+
+        <TextView
+            android:id="@+id/status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Status: "
+            android:layout_marginLeft="13dp"
+            android:layout_marginRight="3sp"
+            android:textSize="12sp"
+            android:layout_toRightOf="@id/image_extended"
+            android:textColor="@color/white"
+            android:layout_below="@id/tv_type_extended"
+            android:textStyle="bold"
+            />
+        <TextView
+            android:id="@+id/tv_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Status"
+            android:textSize="12sp"
+            android:layout_toRightOf="@id/status"
+            android:layout_below="@id/tv_type_extended"
+            android:textColor="@color/red"
+            android:textStyle="bold"
+            />
+        <TextView
+            android:id="@+id/episodes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Episodes: "
+            android:layout_marginLeft="13dp"
+            android:layout_marginRight="3sp"
+            android:textSize="12sp"
+            android:layout_toRightOf="@id/image_extended"
+            android:textColor="@color/white"
+            android:layout_below="@id/status"
+            android:textStyle="bold"
+            />
+        <TextView
+            android:id="@+id/tv_episodes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Episodes"
+            android:textSize="12sp"
+            android:layout_toRightOf="@id/episodes"
+            android:layout_below="@id/status"
+            android:textColor="@color/red"
+            android:textStyle="bold"
+            />
+
+
+
+        <TextView
+            android:id="@+id/studios"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Studio: "
+            android:layout_marginLeft="13dp"
+            android:layout_marginRight="3sp"
+            android:textSize="12sp"
+            android:layout_toRightOf="@id/image_extended"
+            android:textColor="@color/white"
+            android:layout_below="@id/episodes"
+            android:textStyle="bold"
+            />
+        <TextView
+            android:id="@+id/tv_studios"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Studio"
+            android:textSize="12sp"
+            android:layout_toRightOf="@id/studios"
+            android:layout_below="@id/episodes"
+            android:textColor="@color/red"
+            android:textStyle="bold"
+            />
+
+        <TextView
+        android:id="@+id/synopsis"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="13sp"
+        android:text="Synopsis"
+        android:textStyle="bold"
+        android:fontFamily="sans-serif-condensed-medium"
+        android:layout_marginBottom="8sp"
+        android:textColor="@color/white"
+        android:layout_below="@id/image_extended"
+        />
+    <TextView
+        android:id="@+id/tv_synopsis_extended"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="12sp"
+        android:text="Synopsis"
+        android:fontFamily="sans-serif-condensed-medium"
+        android:layout_marginBottom="10sp"
+        android:textColor="@color/white"
+        android:layout_below="@id/synopsis"
+        />
+
+
+    </RelativeLayout>
+</ScrollView>

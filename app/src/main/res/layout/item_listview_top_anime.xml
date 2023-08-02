@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="15dp"
+    android:background="@color/black"
+    >
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="25sp"
+        android:text="Title"
+        android:fontFamily="sans-serif-condensed-medium"
+        android:textStyle="bold"
+        android:layout_marginBottom="10sp"
+        android:textColor="@color/white"
+        />
+    <TextView
+        android:id="@+id/tv_synopsis"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="13sp"
+        android:text="Synopsis"
+        android:fontFamily="sans-serif-condensed-medium"
+        android:layout_marginBottom="10sp"
+        android:textColor="@color/white"
+        android:maxLines="3"
+        />
+    <ImageView
+        android:id="@+id/img_anime"
+        android:layout_width="244dp"
+        android:layout_height="313dp"
+        android:layout_marginBottom="10sp"
+        android:scaleType="fitXY"
+        android:layout_gravity="center"
+        />
+
+    <TextView
+        android:id="@+id/tv_mal_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="13sp"
+        android:text="Mal_id"
+        android:fontFamily="sans-serif-condensed-medium"
+        android:layout_marginBottom="10sp"
+        android:textColor="@color/white"
+        android:maxLines="3"
+        />
+
+
+</LinearLayout>
