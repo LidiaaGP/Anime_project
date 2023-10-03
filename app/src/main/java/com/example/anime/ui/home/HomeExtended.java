@@ -9,7 +9,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.anime.Anime;
-import com.example.anime.JikanApi_AnimeById;
 import com.example.anime.R;
 import com.example.anime.TopAnimeResponse;
 import com.squareup.picasso.Picasso;
@@ -35,7 +34,6 @@ public class HomeExtended extends AppCompatActivity {
     TextView tv_status;
     TextView tv_episodes;
     TextView tv_studios;
-    private static final String BASE_URL = "https://api.jikan.moe/v4/";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,35 +54,8 @@ public class HomeExtended extends AppCompatActivity {
         Intent intent = getIntent();
         if (intent != null) {
             Anime selectedAnime = (Anime) intent.getSerializableExtra("selectedAnime");
-            int mal_id = selectedAnime.getMal_id();
+
             if (selectedAnime != null) {
-                Retrofit retrofitVideos = new Retrofit.Builder()
-                        .baseUrl(BASE_URL)
-                        .addConverterFactory(GsonConverterFactory.create())
-                        .build();
-
-                JikanApi_AnimeById jikanApiAnimeById = retrofitVideos.create(JikanApi_AnimeById.class);
-                Call<TopAnimeResponse> callVideos = jikanApiAnimeById.getAnimeById(mal_id);
-
-                callVideos.enqueue(new Callback<TopAnimeResponse>() {
-                    @Override
-                    public void onResponse(Call<TopAnimeResponse> call, Response<TopAnimeResponse> response) {
-                        if (response.isSuccessful()) {
-                            TopAnimeResponse animeVideosResponse = response.body();
-                            if (animeVideosResponse != null) {
-                                List<Anime> animeVideos = animeVideosResponse.getData();
-
-                            } else {
-                                Toast.makeText(HomeExtended.this, "Respuesta vacía de videos", Toast.LENGTH_SHORT).show();
-                            }
-                        }
-                    }
-
-                    @Override
-                    public void onFailure(Call<TopAnimeResponse> call, Throwable t) {
-                        Toast.makeText(HomeExtended.this, "Error al obtener videos: " + t.getMessage(), Toast.LENGTH_SHORT).show();
-                    }
-                });
                 String animeTitle = selectedAnime.getTitle();
                 String imageUrl = selectedAnime.getImage_url();
                 String synopsis_extended=selectedAnime.getSynopsis();

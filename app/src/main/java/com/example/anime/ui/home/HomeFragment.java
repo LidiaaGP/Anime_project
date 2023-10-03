@@ -2,24 +2,22 @@ package com.example.anime.ui.home;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
-
 import androidx.fragment.app.Fragment;
-
 import com.example.anime.ArrayAdapterTopAnimes;
 import com.example.anime.JikanApi_TopAnime;
 import com.example.anime.R;
 import com.example.anime.TopAnimeResponse;
 import com.example.anime.Anime;
-
 import java.util.ArrayList;
 import java.util.List;
-
+import com.google.gson.Gson;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -32,14 +30,15 @@ public class HomeFragment extends Fragment {
     private static final String BASE_URL = "https://api.jikan.moe/v4/";
     private ListView listviewtopanime;
     ArrayAdapterTopAnimes adapterTopAnimes;
+    List<Anime> allAnimeList = new ArrayList<>();
+
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_home, container, false);
         listviewtopanime = rootView.findViewById(R.id.listview);
-        List<Anime> animes = new ArrayList<>();
-        adapterTopAnimes = new ArrayAdapterTopAnimes(getContext(), R.layout.item_listview_top_anime, animes);
+        adapterTopAnimes = new ArrayAdapterTopAnimes(getContext(), R.layout.item_listview_top_anime, allAnimeList);
         listviewtopanime.setAdapter(adapterTopAnimes);
 
         Retrofit retrofit = new Retrofit.Builder()
@@ -55,13 +54,9 @@ public class HomeFragment extends Fragment {
             public void onResponse(Call<TopAnimeResponse> call, Response<TopAnimeResponse> response) {
                 if (response.isSuccessful()) {
                     TopAnimeResponse topAnimeResponse = response.body();
-                    if (topAnimeResponse != null) {
-                        List<Anime> animeList = topAnimeResponse.getData();
-                        adapterTopAnimes.clear();
-                        adapterTopAnimes.addAll(animeList);
-                    } else {
-                        Toast.makeText(getContext(), "Respuesta vacía", Toast.LENGTH_SHORT).show();
-                    }
+                    allAnimeList.clear();
+                    allAnimeList.addAll(topAnimeResponse.getData());
+                    adapterTopAnimes.notifyDataSetChanged();
                 }
             }
 
@@ -82,7 +77,25 @@ public class HomeFragment extends Fragment {
             }
         });
 
+
         return rootView;
+
+    }
+
+    public void updateAdapterDataWithQuery(String query, List<Anime> animeList) {
+        List<Anime> filteredAnimeList = new ArrayList<>();
+
+        for (Anime anime : animeList) {
+            String tituloAnime = anime.getTitle();
+
+            if (tituloAnime.contains(query)) {
+                filteredAnimeList.add(anime);
+            }
+        }
+
+        adapterTopAnimes.clear();
+        adapterTopAnimes.addAll(filteredAnimeList);
+        adapterTopAnimes.notifyDataSetChanged();
 
     }
 

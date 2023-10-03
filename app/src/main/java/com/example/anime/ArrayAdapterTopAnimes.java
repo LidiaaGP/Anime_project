@@ -5,6 +5,7 @@ import static android.content.Context.MODE_PRIVATE;
 import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
@@ -24,7 +25,7 @@ public class ArrayAdapterTopAnimes extends ArrayAdapter<Anime> {
     Activity activity;
     int idlayout;
     List <Anime> topAnime;
-    SharedPreferences preferences;
+
     private static final int MAX_SYNOPSIS_LENGTH = 150;
     static class Ref{
         TextView title;
@@ -44,7 +45,6 @@ public class ArrayAdapterTopAnimes extends ArrayAdapter<Anime> {
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         ArrayAdapterTopAnimes.Ref ref;
         View layout;
-        preferences = getContext().getSharedPreferences("preferencias.xml", MODE_PRIVATE);
         if (convertView == null) {
             layout = activity.getLayoutInflater().inflate(idlayout, null);
             TextView title = layout.findViewById(R.id.tv_title);
@@ -66,6 +66,7 @@ public class ArrayAdapterTopAnimes extends ArrayAdapter<Anime> {
         Anime anime = topAnime.get(position);
         ref.title.setText(anime.getTitle());
         String synopsis = anime.getSynopsis();
+
         if (synopsis.length() > MAX_SYNOPSIS_LENGTH) {
             synopsis = synopsis.substring(0, MAX_SYNOPSIS_LENGTH) + "...";
         }
